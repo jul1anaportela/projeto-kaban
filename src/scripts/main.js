@@ -82,36 +82,35 @@
     
         taskList.forEach(function (task) {
             const formattedDate = moment(task.deadline).format('DD/MM/YYYY');
-    
             const columnBody = document.querySelector(`[data-column="${task.column}"] .body .cards_list`);
     
-            const card = `
-                <div class="card card-${task.priority}-prioridade" 
-                    id="${task.id}"
-                    ondblclick="openModalToEdit('${task.id}')"
-                    draggable="true"
-                    ondragstart="dragstart_handler(event)"
-                >
-                    <div class="head-card">
-                        <div class="tag-tarefa">
-                            <span class="tag-${task.priority}-prioridade">${task.priority}</span>
-                        </div>
-                        <button class="btn-delete">
-                            <span class="material-icons">delete</span>
-                        </button>
-                    </div>
+            const card = document.createElement('div');
+            card.classList.add('card', `card-${task.priority}-prioridade`);
+            card.id = task.id;
+            card.draggable = true;
     
-                    <div class="info">
-                        <span class="descricao-tarefa">${task.description}</span>
-                    </div>
+            card.addEventListener('dblclick', function() {
+                openModalToEdit(task.id);
+            });
     
-                    <div class="info">
-                        <span class="data-entrega"> <span class="material-icons">event</span> ${formattedDate}</span>
+            card.innerHTML = `
+                <div class="head-card">
+                    <div class="tag-tarefa">
+                        <span class="tag-${task.priority}-prioridade">${task.priority}</span>
                     </div>
+                    <button class="btn-delete">
+                        <span class="material-icons">delete</span>
+                    </button>
+                </div>
+                <div class="info">
+                    <span class="descricao-tarefa">${task.description}</span>
+                </div>
+                <div class="info">
+                    <span class="data-entrega"> <span class="material-icons">event</span> ${formattedDate}</span>
                 </div>
             `;
     
-            columnBody.innerHTML += card;
+            columnBody.appendChild(card);
         });
     }
   
