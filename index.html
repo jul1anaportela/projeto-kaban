@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanbam</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Kaban Board</h1>
+        <button class="primary">Nova Tarefa</button>
+    </div>
+
+    <div class="container">
+
+        <div class="column" data-column="1" ondrop="drop_handler(event)"
+        ondragover="dragover_handler(event)">
+            <div class="head">
+                <span>Backlog</span>
+            </div>
+            <div class="body">
+                <button class="add_btn" >
+                    <span class="material-icons">
+                        add
+                    </span>
+                    Adicionar Item
+                </button>
+                <div class="cards_list"></div>
+            </div>
+        </div>
+
+        <div class="column" data-column="2" ondrop="drop_handler(event)"
+        ondragover="dragover_handler(event)">
+            <div class="head">
+                <span>To-do</span>
+            </div>
+            <div class="body">
+                <button class="add_btn">
+                    <span class="material-icons">
+                        add
+                    </span>
+                    Adicionar Item
+                </button>
+                <div class="cards_list"></div>
+            </div>
+        </div>
+
+        <div class="column" data-column="3" ondrop="drop_handler(event)"
+        ondragover="dragover_handler(event)">
+            <div class="head">
+                <span>In Progress</span>
+            </div>
+            <div class="body">
+                <button class="add_btn">
+                    <span class="material-icons">
+                        add
+                    </span>
+                    Adicionar Item
+                </button>
+                <div class="cards_list"></div>
+            </div>
+        </div>
+
+        <div class="column" data-column="4" ondrop="drop_handler(event)"
+        ondragover="dragover_handler(event)">
+            <div class="head">
+                <span>Done</span>
+            </div>
+            <div class="body">
+                <button class="add_btn">
+                    <span class="material-icons">
+                        add
+                    </span>
+                    Adicionar Item
+                </button>
+                <div class="cards_list"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal">
+        <div class="box">
+            <div class="head">
+                <span id="creationModeTitle">Nova Tarefa</span>
+                <span id="editingModeTitle">Editar Tarefa</span>
+                <button>
+                    <span class="material-icons">
+                        close
+                    </span>
+                </button>
+            </div>
+
+            <div class="form">
+                <input type="hidden" id="idInput">
+
+                <div class="form-group">
+                    <label for="description">Descrição</label>
+                    <textarea id="description" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Prioridade</label>
+                    <select id="priority">
+                        <option value="baixa">Baixa</option>
+                        <option value="media">Média</option>
+                        <option value="alta">Alta</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="column">Coluna</label>
+                    <select id="column">
+                        <option value="1">Backlog</option>
+                        <option value="2">To-do</option>
+                        <option value="3">In Progress</option>
+                        <option value="4">Done</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Prazo</label>
+                    <input type="date" id="deadline">
+                </div>
+
+                <button class="primary" id="creationModeBtn">Cadastrar</button>
+                <button class="primary" id="editingModeBtn">Salvar Alterações</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="moment.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
