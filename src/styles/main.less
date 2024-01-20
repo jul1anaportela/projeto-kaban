@@ -1,0 +1,265 @@
+@fontePrincipal: 'Ubuntu', sans-serif;
+@corDoTexto: #333;
+@corDeFundo: #f0e8ff;
+@corPrincipal: #693bc9;
+@corAltaPrioridade: #F25C84;
+@corMediaPrioridade: #7672F2;
+@corBaixaPrioridade: #1BA698;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: @fontePrincipal;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: @corDeFundo;
+}
+
+h1 {
+    color: @corDoTexto;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 2%;
+}
+
+.primary {
+    border: none;
+    background-color: @corPrincipal;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 22px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    gap: 3%;
+    justify-content: center;
+    align-items: center;
+    padding: 5% 0;
+
+    .column {
+        width: 250px;
+        height: 600px;
+        background-color: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+
+        .head {
+            background-color: @corPrincipal;
+            color: #fff;
+            padding: 5%;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .body {
+            padding: 20px;
+            overflow-y: auto;
+
+            .cards_list {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .add_btn {
+                background: none;
+                border: 1px solid @corDoTexto;
+                border-radius: 10px;
+                padding: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                cursor: pointer;
+                color: @corDoTexto;
+            }
+
+            .card {
+                background-color: #fff;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+                border-radius: 7px;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 20px;
+
+                .info {
+                    font-size: 14px;
+                    color: #333;
+                    display: flex;
+                    flex-direction: column; 
+                    
+                    .descricao-tarefa {
+                        font-weight: bold;
+                        color: #2F4673;
+                    }
+
+                    .data-entrega {
+                        display: flex;
+                        align-items: center;
+                        font-size: 10px;
+                        font-weight: bold;
+                        color: @corDoTexto;
+
+                        span {
+                            font-size: 14px;
+                            color: @corDoTexto;
+                        }
+                    }
+                }
+
+                .tag-tarefa {
+                    width: 30%;
+                    text-transform: uppercase;
+                    font-size: 10px;
+                    font-weight: bold;
+
+                    .tag-alta-prioridade {
+                        background-color: rgba(242,98,65,0.1);
+                        color: #F25C84;
+                    }
+
+                    .tag-media-prioridade {
+                        background-color: rgba(118, 114,242, 0.1);
+                        color: #7672F2;
+                    }
+
+                    .tag-baixa-prioridade {
+                        background-color: rgba(27, 166, 152, 0.1);
+                        color: #1BA698;
+                    }
+                }
+
+                .head-card {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    span {
+                        font-size: 12px;
+                        color: @corAltaPrioridade;
+                    }
+
+                    .btn-delete {
+                        background-color: transparent;
+                        outline: none;
+                        border: none;
+                        color: @corDoTexto;
+                        font-size: 8px;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .card-alta-prioridade {
+                border-left: 4px solid #F25C84;
+            }
+            
+            .card-media-prioridade {
+                border-left: 4px solid #7672F2;
+            }
+            
+            .card-baixa-prioridade {
+                border-left: 4px solid #1BA698;
+            }
+        }
+    }
+}
+
+#modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    .box {
+        background-color: #fff;
+        width: 400px;
+        border-radius: 7px;
+        overflow: hidden;
+
+        .head {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+
+            span {
+                font-size: 18px;
+                font-weight: bold;
+                color: @corDoTexto;
+            }
+
+            button {
+                border: none;
+                background: none;
+                font-size: 20px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+
+        .form {
+            padding: 28px;
+
+            .form-group {
+                margin-bottom: 15px;
+            }
+
+            label {
+                display: block;
+                font-size: 14px;
+                color: #333;
+                margin-bottom: 1%;
+            }
+
+            textarea,
+            select,
+            input {
+                width: 100%;
+                border-radius: 7px;
+                border: 1px solid #999;
+                font-size: 14px;
+                color: #333;
+            }
+
+            textarea {
+                padding: 10px 15px;
+            }
+
+            select {
+                padding: 10px;
+            }
+
+            input {
+                padding: 10px;
+            }
+            
+            button {
+                display: block;
+                margin-left: auto;
+            }
+        }
+    }
+}
