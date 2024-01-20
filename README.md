@@ -24,4 +24,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 Este projeto foi feito durante meus estudos sobre Javascript
 
-- [Visite o projeto online]()
+## ⚡ Configuração na Versel
+
+<p align="center">
+  <img alt="link-tree" src="./.github/config.png" width="100%">
+</p>
+
+- [Visite o projeto online](https://projeto-kaban.vercel.app/)
