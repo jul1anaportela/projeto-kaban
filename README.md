@@ -23,5 +23,3 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 💻 Projeto
 
 Este projeto foi feito durante meus estudos sobre Javascript
-
-- [Visite o projeto online]()
